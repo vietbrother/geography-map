@@ -660,6 +660,27 @@ let posts = [
   }
 ];
 
+let lstAddressArr = [
+  {'id' : '1', 'name': 'Thị xã Tây Ninh'},
+  {'id' : '2', 'name': 'Huyện Tân Biên'},
+  {'id' : '3', 'name': 'Huyện Tân Châu'},
+  {'id' : '4', 'name': 'Huyện Dương Minh Châu'},
+  {'id' : '5', 'name': 'Huyện Châu Thành'},
+  {'id' : '6', 'name': 'Huyện Hoà Thành'},
+  {'id' : '7', 'name': 'Huyện Bến Cầu'},
+  {'id' : '8', 'name': 'Huyện Gò Dầu'},
+  {'id' : '9', 'name': 'Huyện Trảng Bàng'}
+]
+
+function getAddressInfo(){
+  return lstAddressArr;
+}
+
+function getAddressInfoById(id) {
+  return lstAddressArr.find((u) => u.id === id);
+}
+
+
 export default {
   getUserInfo,
   getUserFriends,
@@ -669,4 +690,7 @@ export default {
   getUserMsgList,
   getMessages,
   userId,
+
+  getAddressInfo,
+  getAddressInfoById,
 }

@@ -21,7 +21,8 @@ export default class MainScreenBase extends Component {
             chat: ThemeService.getChatListScreen(),
             settings: ThemeService.getSettingsScreen(),
             map: ThemeService.getMapsScreen(),
-            home: ThemeService.getHomeScreen()
+            home: ThemeService.getHomeScreen(),
+            mapSearchList: ThemeService.getMapSearchListScreen(),
         }
     }
 
@@ -113,17 +114,29 @@ export default class MainScreenBase extends Component {
                     }}>
                     {<this._screens.profile navigator={this.props.navigator}/>}
                 </TabNavigator.Item>
-                <TabNavigator.Item
+                {/*<TabNavigator.Item*/}
+                    {/*title="Trang chủ"*/}
+                    {/*iconName="ios-paper-outline"*/}
+                    {/*renderIcon={() => <Icon name={"md-home"} size={30}/>}*/}
+                    {/*selected={this.state.selected === 'home'}*/}
+                    {/*onPress={() => {*/}
+                        {/*this.setState({*/}
+                            {/*selected: 'home',*/}
+                        {/*});*/}
+                    {/*}}>*/}
+                    {/*{<this._screens.home navigator={this.props.navigator}/>}*/}
+                {/*</TabNavigator.Item>*/}
+              <TabNavigator.Item
                     title="Trang chủ"
                     iconName="ios-paper-outline"
                     renderIcon={() => <Icon name={"md-home"} size={30}/>}
-                    selected={this.state.selected === 'home'}
+                    selected={this.state.selected === 'mapSearchList'}
                     onPress={() => {
                         this.setState({
-                            selected: 'home',
+                            selected: 'mapSearchList',
                         });
                     }}>
-                    {<this._screens.home navigator={this.props.navigator}/>}
+                    {<this._screens.mapSearchList navigator={this.props.navigator}/>}
                 </TabNavigator.Item>
                 <TabNavigator.Item
                     title="Tin tức"
@@ -138,30 +151,30 @@ export default class MainScreenBase extends Component {
                     {<this._screens.news navigator={this.props.navigator}/>}
                 </TabNavigator.Item>
 
-                <TabNavigator.Item
-                    title="Chats"
-                    iconName="ios-chatbubbles-outline"
-                    badge={1}
-                    selected={this.state.selected === 'chat'}
-                    onPress={() => {
-                        this.setState({
-                            selected: 'chat',
-                        });
-                    }}>
-                    {<this._screens.chat navigator={this.props.navigator}/>}
-                </TabNavigator.Item>
-                <TabNavigator.Item
-                    title="Settings"
-                    iconName="ios-settings-outline"
-                    selectedIconName="ios-settings"
-                    selected={this.state.selected === 'settings'}
-                    onPress={() => {
-                        this.setState({
-                            selected: 'settings',
-                        });
-                    }}>
-                    {<this._screens.settings navigator={this.props.navigator}/>}
-                </TabNavigator.Item>
+                {/*<TabNavigator.Item*/}
+                    {/*title="Chats"*/}
+                    {/*iconName="ios-chatbubbles-outline"*/}
+                    {/*badge={1}*/}
+                    {/*selected={this.state.selected === 'chat'}*/}
+                    {/*onPress={() => {*/}
+                        {/*this.setState({*/}
+                            {/*selected: 'chat',*/}
+                        {/*});*/}
+                    {/*}}>*/}
+                    {/*{<this._screens.chat navigator={this.props.navigator}/>}*/}
+                {/*</TabNavigator.Item>*/}
+                {/*<TabNavigator.Item*/}
+                    {/*title="Settings"*/}
+                    {/*iconName="ios-settings-outline"*/}
+                    {/*selectedIconName="ios-settings"*/}
+                    {/*selected={this.state.selected === 'settings'}*/}
+                    {/*onPress={() => {*/}
+                        {/*this.setState({*/}
+                            {/*selected: 'settings',*/}
+                        {/*});*/}
+                    {/*}}>*/}
+                    {/*{<this._screens.settings navigator={this.props.navigator}/>}*/}
+                {/*</TabNavigator.Item>*/}
                 <TabNavigator.Item
                     title="Hỗ trợ"
                     iconName="ios-settings-outline"

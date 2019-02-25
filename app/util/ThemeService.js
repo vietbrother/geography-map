@@ -35,6 +35,9 @@ import NewsHeadClassic from '../components/classic/NewsHead';
 import NewsHeadBlur from '../components/blur/NewsHead';
 import NewsHeadMaterial from '../components/material/NewsHead';
 
+import MapListHeaderBlur from '../components/blur/MapListHeader'
+import MapItemBlur from '../components/blur/MapItem'
+
 import LoginScreenClassic from '../screens/login/LoginScreenClassic';
 import SettingsScreenBase from '../screens/SettingsScreenBase';
 import MapScreenBase from '../screens/MapScreenBase.js';
@@ -46,6 +49,8 @@ import MainScreenMaterial from '../screens/MainScreenMaterial';
 import LoginScreenBlur from '../screens/login/LoginScreenBlur';
 
 import {RkConfig} from 'react-native-ui-kitten';
+import MapSearchListScreenBase from '../screens/MapSearchListScreenBase.js';
+import MapSearchScreenBase from '../screens/MapSearchScreenBase.js';
 
 let classicTheme = {
   mainScreen: MainScreenBase,
@@ -67,6 +72,10 @@ let classicTheme = {
   newsHeadComponent: NewsHeadClassic,
 
   mapScreens: MapScreenBase,
+  homeScreens: HomeScreenBase,
+  mapSearchListScreen: MapSearchListScreenBase,
+  mapSearchScreen: MapSearchScreenBase,
+  mapListHeaderComponent: MapListHeaderBlur,
 
   setup: function () {
     RkConfig.theme = RkConfig.themes.classic;
@@ -81,6 +90,14 @@ let materialTheme = {
   loginScreen: LoginScreenMaterial,
   newsScreen: NewsScreenBase,
   settingsScreens: SettingsScreenBase,
+
+
+  mapScreens: MapScreenBase,
+  homeScreens: HomeScreenBase,
+  mapSearchListScreen: MapSearchListScreenBase,
+  mapSearchScreen: MapSearchScreenBase,
+  mapListHeaderComponent: MapListHeaderBlur,
+
   appWrapperComponent: AppWrapperClassic,
   postComponent: PostMaterial,
   chatItemComponent: ChatItemMaterial,
@@ -107,6 +124,10 @@ let blurTheme = {
 
   mapScreens: MapScreenBase,
   homeScreens: HomeScreenBase,
+  mapSearchListScreen: MapSearchListScreenBase,
+  mapSearchScreen: MapSearchScreenBase,
+  mapListHeaderComponent: MapListHeaderBlur,
+  mapItemComponent: MapItemBlur,
 
 
   appWrapperComponent: AppWrapperBlur,
@@ -152,6 +173,10 @@ export default ThemeService = {
 
   getMapsScreen: () => themes[currentThemeIndex].mapScreens,
   getHomeScreen: () => themes[currentThemeIndex].homeScreens,
+  getMapSearchScreen: () => themes[currentThemeIndex].mapSearchScreen,
+  getMapSearchListScreen: () => themes[currentThemeIndex].mapSearchListScreen,
+  getMapListHeaderComponent: () => themes[currentThemeIndex].mapListHeaderComponent,
+  getMapItemComponent: () => themes[currentThemeIndex].mapItemComponent,
 
   getAppWrapperComponent: () => themes[currentThemeIndex].appWrapperComponent,
   getPostComponent: () => themes[currentThemeIndex].postComponent,
