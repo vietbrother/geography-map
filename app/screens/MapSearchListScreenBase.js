@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
   },
   list: {
-    backgroundColor: 'white'
-    // paddingTop: 10
+    backgroundColor: 'white',
+    paddingLeft: 15
   },
 });

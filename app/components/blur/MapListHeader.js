@@ -11,7 +11,7 @@ export default class MapListHeaderBlur extends Component {
     return (
       <RkCard rkCardHeader style={styles.container}>
 
-        <RkText rkCardTitle>
+        <RkText rkCardTitle >
           Hệ thống thông tin đất đai
         </RkText>
         <RkButton rkType='clear iconButton'>
@@ -26,8 +26,8 @@ export default class MapListHeaderBlur extends Component {
 const styles = StyleSheet.create({
   container:{
     backgroundColor: RkConfig.colors.blurBg,
-    marginTop: 20,
+    marginTop: 10,
     marginBottom: 0,
-    paddingVertical: 5,
+    paddingVertical: 5
   }
 });
