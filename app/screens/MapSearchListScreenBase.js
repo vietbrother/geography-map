@@ -60,7 +60,7 @@ export default class MapSearchListScreenBase extends Component {
           {/*</Panel>*/}
 
         {/*</View>*/}
-        <ScrollView>
+        <ScrollView style={styles.scrollStyle}>
           {this._renderDistrict()}
         </ScrollView>
         {/*<ListView*/}
@@ -120,7 +120,9 @@ const styles = StyleSheet.create({
   },
   list: {
     backgroundColor: 'white',
-    paddingLeft: 15
+    paddingLeft: 15,
+    borderTopColor: '#ecf0f1',
+    borderTopWidth: 1
   },
   content: {
     padding: 10,
@@ -128,6 +130,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   panel: {
-    marginBottom: 10,
+    borderColor: '#ecf0f1',
+    borderWidth: 1
+  },
+  scrollStyle: {
+    backgroundColor: 'white'
   }
 })

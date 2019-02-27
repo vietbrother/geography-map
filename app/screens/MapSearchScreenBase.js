@@ -81,7 +81,7 @@ export default class MapSearchScreenBase extends Component {
           leftIcon="ios-arrow-round-back"
           title={addressDetail.name}
           onLeftClick={() => this.props.navigator.pop()}/>
-        {this._renderMapContent()}
+          {this._renderMapContent()}
       </Wrapper>
     )
   }
@@ -147,13 +147,13 @@ export default class MapSearchScreenBase extends Component {
           />
 
 
-          <Callout>
-            <View style={styles.calloutView}>
-              <TextInput style={styles.calloutSearch}
-                         placeholder={'Search'}
-              />
-            </View>
-          </Callout>
+          {/*<Callout>*/}
+            {/*<View style={styles.calloutView}>*/}
+              {/*<TextInput style={styles.calloutSearch}*/}
+                         {/*placeholder={'Search'}*/}
+              {/*/>*/}
+            {/*</View>*/}
+          {/*</Callout>*/}
         </MapView>
         <View style={styles.buttonContainer}>
           <TouchableOpacity

@@ -27,6 +27,9 @@ export default class ToolbarBlur extends Component {
 var styles = StyleSheet.create({
   bar: {
     backgroundColor: RkConfig.colors.blurBg,
+    position: 'absolute',
+    top: 0,
+    width: '100%',
   },
 
 });
