@@ -10,7 +10,8 @@ import {RkConfig, RkBarBg} from 'react-native-ui-kitten';
 export default class AppWrapper extends Component {
 
   static tabProps={
-    tintColor: RkConfig.colors.white,
+    // tintColor: RkConfig.colors.white,
+    color: RkConfig.colors.white,
     barTintColor: RkConfig.colors.black
   };
 

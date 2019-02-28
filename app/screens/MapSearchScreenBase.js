@@ -23,9 +23,10 @@ import MapView, { ProviderPropType, Marker, AnimatedRegion, Polygon, Callout } f
 const screen = Dimensions.get('window')
 
 const ASPECT_RATIO = screen.width / screen.height
-const LATITUDE = 21.012100
-const LONGITUDE = 105.812612
-const LATITUDE_DELTA = 0.0002
+const LATITUDE = 11.323185
+const LONGITUDE = 106.085139
+
+const LATITUDE_DELTA = 0.01
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO
 
 // const { width, height } = Dimensions.get('window')
@@ -75,18 +76,63 @@ export default class MapSearchScreenBase extends Component {
     let addressDetail = api.getAddressInfoById(this.props.addressId)
     let Wrapper = ThemeService.getAppWrapperComponent()
     let Toolbar = ThemeService.getToolbarComponent()
+    console.log(addressDetail)
     return (
       <Wrapper>
         <Toolbar
           leftIcon="ios-arrow-round-back"
           title={addressDetail.name}
           onLeftClick={() => this.props.navigator.pop()}/>
-          {this._renderMapContent()}
+        {this._renderMapContent(addressDetail)}
       </Wrapper>
     )
   }
 
-  _renderMapContent () {
+  _renderListPolygon (addressDetail) {
+    let polygonView = [];
+    let lstPolygon = api.getPolygonInfoByParentId(addressDetail.id);
+    console.log("lstPolygon");
+    console.log(lstPolygon);
+    for (p of lstPolygon) {
+      let coordinatesPolygon = p.coordinates.map(coordsArr => {
+        let coords = {
+          latitude: coordsArr[1],
+          longitude: coordsArr[0],
+        }
+        return coords;
+      })
+
+      console.log("coordinatesPolygon");
+      console.log(coordinatesPolygon);
+      polygonView.push(
+        <Polygon
+          key={p.id}
+          coordinates={coordinatesPolygon}
+          strokeColor="#000" // fallback for when `strokeColors` is not supported by the map-provider
+          strokeColors={[
+            '#7F0000',
+            '#00000000', // no color, creates a "long" gradient between the previous and next coordinate
+            '#B24112',
+            '#E5845C',
+            '#238C23',
+            '#7F0000'
+          ]}
+          fillColor="#fff68f"
+          strokeWidth={1}
+        />
+      )
+    }
+    return polygonView
+  }
+
+  _renderMapContent (addressDetail) {
+    let village = addressDetail.coordinates.map(coordsArr => {
+      let coords = {
+        latitude: coordsArr[1],
+        longitude: coordsArr[0],
+      }
+      return coords
+    })
     return (
 
       <View style={styles.container}>
@@ -101,11 +147,12 @@ export default class MapSearchScreenBase extends Component {
           }}
         >
           <Polygon
+            key={10001}
             coordinates={[
-              { latitude: 21.012100, longitude: 105.812612 },
-              { latitude: 21.012126, longitude: 105.812672 },
-              { latitude: 21.012093, longitude: 105.812868 },
-              { latitude: 21.011824, longitude: 105.812728 }
+              { latitude: 11.323492, longitude: 106.085197 },
+              { latitude: 11.322847, longitude: 106.085733 },
+              { latitude: 11.323166, longitude: 106.086173 },
+              { latitude: 11.323660, longitude: 106.085611 }
 
             ]}
             strokeColor="#000" // fallback for when `strokeColors` is not supported by the map-provider
@@ -120,49 +167,63 @@ export default class MapSearchScreenBase extends Component {
             fillColor="#fff68f"
             strokeWidth={1}
           />
+          {this._renderListPolygon(addressDetail)}
+          {/*<Polygon*/}
+          {/*coordinates={[*/}
+          {/*{ latitude: 21.012100, longitude: 105.812612 },*/}
+          {/*{ latitude: 21.012126, longitude: 105.812672 },*/}
+          {/*{ latitude: 21.012093, longitude: 105.812868 },*/}
+          {/*{ latitude: 21.011824, longitude: 105.812728 }*/}
 
-          <Polygon
-            coordinates={[
-              { latitude: 21.012126, longitude: 105.812612 },
-              { latitude: 21.012156, longitude: 105.812672 },
-              { latitude: 21.012093, longitude: 105.812868 },
-              { latitude: 21.011924, longitude: 105.812728 }
+          {/*]}*/}
+          {/*strokeColor="#000" // fallback for when `strokeColors` is not supported by the map-provider*/}
+          {/*strokeColors={[*/}
+          {/*'#7F0000',*/}
+          {/*'#00000000', // no color, creates a "long" gradient between the previous and next coordinate*/}
+          {/*'#B24112',*/}
+          {/*'#E5845C',*/}
+          {/*'#238C23',*/}
+          {/*'#7F0000'*/}
+          {/*]}*/}
+          {/*fillColor="#fff68f"*/}
+          {/*strokeWidth={1}*/}
+          {/*/>*/}
 
-            ]}
-            strokeColor="#000" // fallback for when `strokeColors` is not supported by the map-provider
-            strokeColors={[
-              '#7F0000',
-              '#00000000', // no color, creates a "long" gradient between the previous and next coordinate
-              '#B24112',
-              '#E5845C',
-              '#238C23',
-              '#7F0000'
-            ]}
-            fillColor="#7F0000"
-            strokeWidth={1}
-          />
-          <Marker.Animated
-            ref={marker => { this.marker = marker }}
-            coordinate={this.state.coordinate}
-          />
+          {/*<Polygon*/}
+          {/*coordinates={[*/}
+          {/*{ latitude: 21.012126, longitude: 105.812612 },*/}
+          {/*{ latitude: 21.012156, longitude: 105.812672 },*/}
+          {/*{ latitude: 21.012093, longitude: 105.812868 },*/}
+          {/*{ latitude: 21.011924, longitude: 105.812728 }*/}
 
+          {/*]}*/}
+          {/*strokeColor="#000" // fallback for when `strokeColors` is not supported by the map-provider*/}
+          {/*strokeColors={[*/}
+          {/*'#7F0000',*/}
+          {/*'#00000000', // no color, creates a "long" gradient between the previous and next coordinate*/}
+          {/*'#B24112',*/}
+          {/*'#E5845C',*/}
+          {/*'#238C23',*/}
+          {/*'#7F0000'*/}
+          {/*]}*/}
+          {/*fillColor="#7F0000"*/}
+          {/*strokeWidth={1}*/}
+          {/*/>*/}
+          {/*<Marker.Animated*/}
+          {/*ref={marker => { this.marker = marker }}*/}
+          {/*coordinate={this.state.coordinate}*/}
+          {/*/>*/}
 
-          {/*<Callout>*/}
-            {/*<View style={styles.calloutView}>*/}
-              {/*<TextInput style={styles.calloutSearch}*/}
-                         {/*placeholder={'Search'}*/}
-              {/*/>*/}
-            {/*</View>*/}
-          {/*</Callout>*/}
         </MapView>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            onPress={() => this.animate()}
-            style={[styles.bubble, styles.button]}
-          >
-            <Text>Animate</Text>
-          </TouchableOpacity>
-        </View>
+
+        {/*<View style={styles.buttonContainer}>*/}
+        {/*<TouchableOpacity*/}
+        {/*onPress={() => this.animate()}*/}
+        {/*style={[styles.bubble, styles.button]}*/}
+        {/*>*/}
+        {/*<Text>Animate</Text>*/}
+        {/*</TouchableOpacity>*/}
+        {/*</View>*/}
       </View>
     )
   }

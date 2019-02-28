@@ -20,7 +20,7 @@ export default class MapItemBlur extends Component {
         <RkCard rkCardHeader rkCardFriendItem style={styles.border}>
           <View rkCardRow>
             <RkText style={styles.textIcon}>
-              <Icon name="md-map" size={25} color="#4F8EF7" icon/>
+              <Icon name="md-map" size={20} color="#4F8EF7" icon/>
               {'   '}
 
             </RkText>
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: 'black',
     backgroundColor: 'white',
-    color: 'black',
+    //color: 'black',
     paddingVertical: 10
   },
   textIcon: { flexDirection: 'row', justifyContent: 'space-between', color: 'black' },

@@ -7,6 +7,9 @@ import {
   TouchableOpacity,
   UIManager
 } from 'react-native';
+//import Icon from '../blur/MapItem'
+import { RkText } from 'react-native-ui-kitten'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 const { any, bool, func, string } = PropTypes;
 
@@ -56,6 +59,8 @@ class Panel extends Component {
       <View style={[styles.main, style]}>
         <TouchableOpacity onPress={this.onToggle}>
           <Text style={styles.title}>
+            <Icon name="md-map" size={25} color="#4F8EF7" icon/>
+            {'   '}
             {title}
           </Text>
         </TouchableOpacity>
@@ -77,7 +82,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: 'bold',
-    padding: 15,
+    padding: 15
+
   }
 });
 

@@ -12,6 +12,7 @@ import api from '../util/ApiMock'
 import { RkConfig } from 'react-native-ui-kitten'
 
 import Panel from '../components/common/Panel'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 export default class MapSearchListScreenBase extends Component {
 
@@ -25,10 +26,6 @@ export default class MapSearchListScreenBase extends Component {
       dataSource: ds.cloneWithRows(data)
     }
 
-    let districts = api.getAddressInfo();
-
-
-
   }
 
   render () {
@@ -37,58 +34,40 @@ export default class MapSearchListScreenBase extends Component {
     return (
       <View style={styles.container}>
         <Header/>
-        {/*<View style={styles.content}>*/}
-          {/*<Panel title="This is the first container" style={styles.panel}>*/}
-            {/*<Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore*/}
-              {/*et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip*/}
-              {/*ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu*/}
-              {/*fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt*/}
-              {/*mollit anim id est laborum.</Text>*/}
-          {/*</Panel>*/}
-          {/*<Panel title="Second panel in the view" style={styles.panel}>*/}
-            {/*<Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Duis aute irure dolor in reprehenderit in*/}
-              {/*voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non*/}
-              {/*proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Text>*/}
-          {/*</Panel>*/}
-          {/*<Panel expanded title="One more to test" style={styles.panel}>*/}
-            {/*<Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore*/}
-              {/*et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip*/}
-              {/*ex ea commodo consequat.</Text>*/}
-            {/*<Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore*/}
-              {/*et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip*/}
-              {/*ex ea commodo consequat.</Text>*/}
-          {/*</Panel>*/}
-
-        {/*</View>*/}
         <ScrollView style={styles.scrollStyle}>
           {this._renderDistrict()}
         </ScrollView>
         {/*<ListView*/}
-          {/*style={styles.list}*/}
-          {/*automaticallyAdjustContentInsets={false}*/}
-          {/*dataSource={this.state.dataSource}*/}
-          {/*renderRow={(row) => this._renderRowItem(row)}*/}
+        {/*style={styles.list}*/}
+        {/*automaticallyAdjustContentInsets={false}*/}
+        {/*dataSource={this.state.dataSource}*/}
+        {/*renderRow={(row) => this._renderRowItem(row)}*/}
         {/*/>*/}
       </View>
     )
   }
 
   _renderDistrict () {
-    let data = api.getAddressInfo();
-    let districts = []
+    let data = api.getAddressInfo()
+    let villages = [];
+
     for (district of data) {
-      districts.push(
+      let ds = new ListView.DataSource({
+        rowHasChanged: (row1, row2) => row1 !== row2,
+      });
+      let childOfDistrict = api.getChildInfoByParentId(district.id);
+      villages.push(
         <Panel title={district.name} style={styles.panel}>
           <ListView
             style={styles.list}
             automaticallyAdjustContentInsets={false}
-            dataSource={this.state.dataSource}
+            dataSource={ds.cloneWithRows(childOfDistrict)}
             renderRow={(row) => this._renderRowItem(row)}
           />
         </Panel>
-      );
+      )
     }
-    return districts;
+    return villages;
   }
 
   _renderRowItem (rowData) {
@@ -120,7 +99,7 @@ const styles = StyleSheet.create({
   },
   list: {
     backgroundColor: 'white',
-    paddingLeft: 15,
+    paddingLeft: 35,
     borderTopColor: '#ecf0f1',
     borderTopWidth: 1
   },
