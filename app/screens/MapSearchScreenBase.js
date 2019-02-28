@@ -96,8 +96,8 @@ export default class MapSearchScreenBase extends Component {
     for (p of lstPolygon) {
       let coordinatesPolygon = p.coordinates.map(coordsArr => {
         let coords = {
-          latitude: coordsArr[1],
-          longitude: coordsArr[0],
+          latitude: coordsArr[0],
+          longitude: coordsArr[1],
         }
         return coords;
       })
@@ -120,9 +120,9 @@ export default class MapSearchScreenBase extends Component {
           fillColor="#fff68f"
           strokeWidth={1}
         />
-      )
+      );
     }
-    return polygonView
+    return polygonView;
   }
 
   _renderMapContent (addressDetail) {
@@ -148,13 +148,7 @@ export default class MapSearchScreenBase extends Component {
         >
           <Polygon
             key={10001}
-            coordinates={[
-              { latitude: 11.323492, longitude: 106.085197 },
-              { latitude: 11.322847, longitude: 106.085733 },
-              { latitude: 11.323166, longitude: 106.086173 },
-              { latitude: 11.323660, longitude: 106.085611 }
-
-            ]}
+            coordinates={village}
             strokeColor="#000" // fallback for when `strokeColors` is not supported by the map-provider
             strokeColors={[
               '#7F0000',
@@ -164,7 +158,7 @@ export default class MapSearchScreenBase extends Component {
               '#238C23',
               '#7F0000'
             ]}
-            fillColor="#fff68f"
+            // fillColor="#E5845C"
             strokeWidth={1}
           />
           {this._renderListPolygon(addressDetail)}
