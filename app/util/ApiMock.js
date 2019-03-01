@@ -352,7 +352,7 @@ let users = [
     "online": true,
     "email": "b@gmail.com",
     "phone": "+84 123 123 123",
-    "avatar": require("../../img/avatars/boy.jpeg"),
+    "avatar": require("../../img/avatars/boy.jpg"),
     "favoriteSong": whereIsMyMind
   },
   {
@@ -364,7 +364,7 @@ let users = [
     },
     "online": true,
     "email": "ramos.rowe@mail.co.uk",
-    "avatar": require("../../img/avatars/boy.jpeg"),
+    "avatar": require("../../img/avatars/boy.jpg"),
     "favoriteSong": tnt
   },
   // {

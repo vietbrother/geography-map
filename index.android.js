@@ -17,6 +17,7 @@ class TayNinhPortal extends Component {
 
 
   render() {
+	  console.disableYellowBox = true;
     return (
       <Navigator
         style={{flex: 1}}
