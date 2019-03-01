@@ -23,10 +23,10 @@ export default class LoginScreenBlur extends LoginScreenBase {
         <ScrollView contentContainerStyle={{flex: 1}}>
           <View style={styles.container}>
             <View>
-              <Image style={styles.logoImg} source={require('../../../img/react_logo.png')}/>
-              <RkText style={styles.title}><RkText style={styles.extraBold}>React</RkText> Native</RkText>
-              <RkText style={styles.subTitle}>Essentials</RkText>
-              <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+              <Image style={styles.logoImg} source={require('../../../img/tayninh_logo.png')}/>
+              <RkText style={styles.title}><RkText style={styles.extraBold}>Tây Ninh</RkText> Portal</RkText>
+              <RkText style={styles.subTitle}>Hệ thống thông tin điện tử</RkText>
+              <View style={{flexDirection: 'row', justifyContent: 'center', marginTop: 15,}}>
                 <View style={styles.widthLimit}>
                   <RkTextInput
                     rkType='rounded'
@@ -34,7 +34,7 @@ export default class LoginScreenBlur extends LoginScreenBase {
                     label={<Icon name='ios-person-outline'/>}
                     labelStyle={styles.inputIcon}
                     style={styles.input}
-                    placeholder={'Login'}
+                    placeholder={'Tài khoản'}
                     placeholderTextColor={RkConfig.colors.lightGray}/>
                   <RkTextInput
                     rkType='rounded'
@@ -43,7 +43,7 @@ export default class LoginScreenBlur extends LoginScreenBase {
                     labelStyle={[styles.inputIcon, styles.inputIconLock]}
                     style={styles.input}
                     secureTextEntry={true}
-                    placeholder={'Password'}
+                    placeholder={'Mật khẩu'}
                     placeholderTextColor={RkConfig.colors.lightGray}/>
                 </View>
               </View>
@@ -54,12 +54,12 @@ export default class LoginScreenBlur extends LoginScreenBase {
                           style={styles.buttonContainer}
                           rkType='circle shadow'
                           onPress={() => super._renderMainScreen()}>
-                  <RkText>Log In</RkText>
+                  <RkText>Đăng nhập</RkText>
                 </RkButton>
               </View>
             </View>
             <RkText style={styles.footText}>
-              Don't have account? <Text style={styles.extraBold}>Sign up</Text>.
+              Chưa có tài khoản? <Text style={styles.extraBold}>Đăng ký</Text>.
             </RkText>
           </View>
         </ScrollView>
@@ -89,12 +89,12 @@ let styles = StyleSheet.create({
   },
   title: {
     marginTop: 5,
-    fontSize: 42,
+    fontSize: 30,
     textAlign: 'center',
     fontWeight: '500'
   },
   subTitle: {
-    fontSize: 36,
+    fontSize: 25,
     textAlign: 'center',
     fontWeight: '100',
     marginBottom: 30
@@ -116,7 +116,7 @@ let styles = StyleSheet.create({
     flex: 1,
     color: RkConfig.colors.white,
     fontWeight: '300',
-    fontSize: 20,
+    fontSize: 18,
     textAlign: 'left',
     height: 40,
     marginHorizontal: 10
@@ -129,15 +129,17 @@ let styles = StyleSheet.create({
   },
   buttonContainer: {
     backgroundColor: RkConfig.colors.blurPrimary,
+    //backgroundColor: '#07205a',
     shadowColor: RkConfig.colors.blurPrimary,
     paddingVertical: 12,
     shadowRadius: 12,
     shadowOpacity: 0.4,
-    marginTop: 40,
+    marginTop: 20,
   },
   buttonInner: {
-    fontSize: 22,
+    fontSize: 20,
     color: 'white',
+    fontWeight: '700'
   },
   extraBold: {
     fontWeight: '700'

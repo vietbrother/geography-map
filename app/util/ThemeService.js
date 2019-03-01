@@ -51,6 +51,8 @@ import LoginScreenBlur from '../screens/login/LoginScreenBlur';
 import {RkConfig} from 'react-native-ui-kitten';
 import MapSearchListScreenBase from '../screens/MapSearchListScreenBase.js';
 import MapSearchScreenBase from '../screens/MapSearchScreenBase.js';
+import SupportScreenBase from '../screens/SupportScreenBase.js';
+import ChartScreenBase from '../screens/ChartScreenBase.js';
 
 let classicTheme = {
   mainScreen: MainScreenBase,
@@ -128,6 +130,8 @@ let blurTheme = {
   mapSearchScreen: MapSearchScreenBase,
   mapListHeaderComponent: MapListHeaderBlur,
   mapItemComponent: MapItemBlur,
+  supportScreenBase: SupportScreenBase,
+  chartScreenBase: ChartScreenBase,
 
 
   appWrapperComponent: AppWrapperBlur,
@@ -170,6 +174,8 @@ export default ThemeService = {
   getNewsScreen: () => themes[currentThemeIndex].newsScreen,
   getProfileScreen: () => themes[currentThemeIndex].profileScreen,
   getSettingsScreen: () => themes[currentThemeIndex].settingsScreens,
+  getSupportScreenBase: () => themes[currentThemeIndex].supportScreenBase,
+  getChartScreenBase: () => themes[currentThemeIndex].chartScreenBase,
 
   getMapsScreen: () => themes[currentThemeIndex].mapScreens,
   getHomeScreen: () => themes[currentThemeIndex].homeScreens,

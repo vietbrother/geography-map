@@ -17,7 +17,7 @@ import ThemeService from '../util/ThemeService';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {RkButton, RkCard, RkText, RkTextInput, RkSeparator, RkConfig} from 'react-native-ui-kitten';
 
-export default class SupportScreenBase extends Component {
+export default class ChartScreenBase extends Component {
 
     constructor(props) {
         super(props);

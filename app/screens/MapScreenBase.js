@@ -133,18 +133,12 @@ export default class MapScreenBase extends Component {
 
   onPressPolygon(data){
     Alert.alert(
-      'Alert Title',
-      'My Alert Msg',
+      '',
+      'Tây Ninh là một tỉnh thuộc vùng Đông Nam Bộ Việt Nam.Diện tích : 4.041,4 km². Tây Ninh nằm ở vị trí cầu nối giữa Thành phố Hồ Chí Minh và thủ đô Phnôm Pênh, vương quốc Campuchia và là một trong những tỉnh nằm trong Vùng kinh tế trọng điểm phía Nam. ',
       [
-        {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
-        {
-          text: 'Cancel',
-          onPress: () => console.log('Cancel Pressed'),
-          style: 'cancel',
-        },
-        {text: 'OK', onPress: () => console.log('OK Pressed')},
+
       ],
-      {cancelable: false},
+      {cancelable: true},
     );
   }
 

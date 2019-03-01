@@ -23,7 +23,7 @@ export default class ProfileScreenBase extends Component {
     let ProfileComponent = ThemeService.getProfileComponent();
     return (
       <View style={RkStyle.flex1}>
-        <ScrollView
+        <ScrollView style={{backgroundColor: 'white',}}
           automaticallyAdjustContentInsets={true}>
           <ProfileComponent user={api.getUserInfo(api.userId)}/>
           <View
@@ -40,17 +40,17 @@ export default class ProfileScreenBase extends Component {
     let styles = ProfileTab.getStyles();
     return (
       <RkTabView tabsContainerStyle={styles.tabView}>
-        <RkTabView.Tab title={(selected) => <ProfileTab selected={selected} name='Posts' value='62'/>}>
+        <RkTabView.Tab title={(selected) => <ProfileTab selected={selected} name="Lô đất sở hữu" value='2'/>}>
           <PostList style={styles.tabContent}
                     posts={api.getUserPosts(api.userId)}
                     iconStyle={styles.postIconsStyle}/>
         </RkTabView.Tab>
-        <RkTabView.Tab title={(selected) => <ProfileTab selected={selected} name='Followers' value='124'/>}>
+        <RkTabView.Tab title={(selected) => <ProfileTab selected={selected} name='Bạn bè' value='124'/>}>
           <View style={styles.tabContent}>
             <FriendList friends={api.getUserFriends(api.userId)}/>
           </View>
         </RkTabView.Tab>
-        <RkTabView.Tab title={(selected) => <ProfileTab selected={selected} name='Photo' value='48'/>}>
+        <RkTabView.Tab title={(selected) => <ProfileTab selected={selected} name='Hồ sơ' value='6'/>}>
           <View style={styles.tabContent}>
             <ImageGallery style={styles.imageTab} posts={api.getUserPosts(api.userId)}/>
           </View>

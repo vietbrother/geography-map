@@ -27,7 +27,8 @@ const styles = StyleSheet.create({
   },
   statContainerSelected: {
     borderColor: RkConfig.colors.blurPrimary,
-    backgroundColor: RkConfig.colors.blurBg,
+    //backgroundColor: RkConfig.colors.blurBg,
+    backgroundColor: 'white',
   },
   titleStatText: {
     fontSize: 24,
@@ -36,15 +37,17 @@ const styles = StyleSheet.create({
   statText: {
     textAlign: 'center',
     fontSize: 14,
-    color: RkConfig.colors.white
+    color: '#07205a',
   },
   tabView: {
-    backgroundColor: RkConfig.colors.blurBg,
+    // backgroundColor: RkConfig.colors.blurBg,
+    backgroundColor: 'white',
     margin: 10,
     borderRadius: 35,
   },
   tabContent: {
     marginTop: 10,
-    backgroundColor: RkConfig.colors.blurBg
+    //backgroundColor: RkConfig.colors.blurBg
+    backgroundColor: 'white',
   },
 });

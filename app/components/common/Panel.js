@@ -82,8 +82,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: 'bold',
-    padding: 15
-
+    padding: 15,
+    color: '#07205a',
   }
 });
 

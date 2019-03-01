@@ -5,8 +5,11 @@ import {
   Image
 } from 'react-native';
 
+import TabNavigator from 'react-native-tab-navigator'
+
 import {RkConfig, RkButton, RkText} from 'react-native-ui-kitten';
 import Icon from 'react-native-vector-icons/Ionicons';
+import ThemeService from '../../util/ThemeService'
 
 export default class Profile extends Component {
 
@@ -15,23 +18,26 @@ export default class Profile extends Component {
     return (
       <View>
         <View style={styles.head}>
-          <RkButton style={styles.button} innerStyle={styles.buttonIconInner}><Icon name='ios-person'/></RkButton>
+          <RkButton style={styles.button} innerStyle={styles.buttonIconInner}><Icon name='md-notifications'/></RkButton>
           <View style={styles.shadowImage}>
             <Image source={user.avatar} style={styles.avatar}/>
           </View>
           <RkButton style={styles.button} innerStyle={styles.buttonIconInner}><Icon name='ios-mail'/></RkButton>
         </View>
         <RkText style={[styles.text, styles.onlineText]}>
-          Online
+          {/*Online*/}
         </RkText>
-        <RkText
-          style={[styles.text, styles.nameText]}>{user.name.first} {user.name.last}</RkText>
-        <RkText style={[styles.text, styles.statusText]}>
-          Head cook and bottle-washer.
-        </RkText>
-        <RkButton style={[styles.button, styles.followButton]} innerStyle={styles.buttonInner}>
-          Follow
-        </RkButton>
+        {/*<RkText*/}
+          {/*style={[styles.text, styles.nameText]}>{user.name.first} {user.name.last}</RkText>*/}
+        {/*<RkText style={[styles.text, styles.statusText]}>*/}
+          {/*Head cook and bottle-washer.*/}
+        {/*</RkText>*/}
+
+        {/*<RkButton style={[styles.button, styles.followButton]} innerStyle={styles.buttonInner}*/}
+
+        {/*>*/}
+          {/*Đăng xuất*/}
+        {/*</RkButton>*/}
       </View>
     )
   }
@@ -67,10 +73,12 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     paddingVertical: 10,
     paddingHorizontal: 15,
-    backgroundColor: RkConfig.colors.blurBg,
+    //backgroundColor: RkConfig.colors.blurBg,
+    backgroundColor: '#07205a',
   },
   buttonInner: {
-    color: 'white'
+    // color: 'white'
+    color: '#07205a',
   },
   buttonIconInner: {
     color: 'white',

@@ -24,6 +24,8 @@ export default class MainScreenBase extends Component {
       map: ThemeService.getMapsScreen(),
       home: ThemeService.getHomeScreen(),
       mapSearchList: ThemeService.getMapSearchListScreen(),
+      support: ThemeService.getSupportScreenBase(),
+      chart: ThemeService.getChartScreenBase(),
     }
   }
 
@@ -103,7 +105,7 @@ export default class MainScreenBase extends Component {
           {<this._screens.mapSearchList navigator={this.props.navigator}/>}
         </TabNavigator.Item>
         <TabNavigator.Item
-          title="Map"
+          title="Bản đồ"
           //iconName="ios-map"
           renderIcon={() => <Icon name={'ios-map'} size={27}/>}
           selected={this.state.selected === 'map'}
@@ -113,6 +115,30 @@ export default class MainScreenBase extends Component {
             })
           }}>
           {<this._screens.map navigator={this.props.navigator}/>}
+        </TabNavigator.Item>
+        <TabNavigator.Item
+          title="Thống kê"
+          //iconName="ios-map"
+          renderIcon={() => <Icon name={'md-stats'} size={27}/>}
+          selected={this.state.selected === 'chart'}
+          onPress={() => {
+            this.setState({
+              selected: 'chart',
+            })
+          }}>
+          {<this._screens.chart navigator={this.props.navigator}/>}
+        </TabNavigator.Item>
+        <TabNavigator.Item
+          title="Tin tức"
+          //iconName="ios-paper-outline"
+          renderIcon={() => <Icon name={'ios-paper'} size={27}/>}
+          selected={this.state.selected === 'news'}
+          onPress={() => {
+            this.setState({
+              selected: 'news',
+            })
+          }}>
+          {<this._screens.news navigator={this.props.navigator}/>}
         </TabNavigator.Item>
         <TabNavigator.Item
           title="Profile"
@@ -140,18 +166,7 @@ export default class MainScreenBase extends Component {
         {/*{<this._screens.home navigator={this.props.navigator}/>}*/}
         {/*</TabNavigator.Item>*/}
 
-        <TabNavigator.Item
-          title="Tin tức"
-          //iconName="ios-paper-outline"
-          renderIcon={() => <Icon name={'ios-paper-outline'} size={27}/>}
-          selected={this.state.selected === 'news'}
-          onPress={() => {
-            this.setState({
-              selected: 'news',
-            })
-          }}>
-          {<this._screens.news navigator={this.props.navigator}/>}
-        </TabNavigator.Item>
+
 
         {/*<TabNavigator.Item*/}
         {/*title="Chats"*/}
@@ -181,14 +196,14 @@ export default class MainScreenBase extends Component {
           title="Hỗ trợ"
           //iconName="ios-settings-outline"
           //selectedIconName="ios-settings"
-          renderIcon={() => <Icon name={'ios-help-circle-outline'} size={27}/>}
-          selected={this.state.selected === 'settings'}
+          renderIcon={() => <Icon name={'ios-call'} size={27}/>}
+          selected={this.state.selected === 'support'}
           onPress={() => {
             this.setState({
-              selected: 'settings',
+              selected: 'support',
             })
           }}>
-          {<this._screens.settings navigator={this.props.navigator}/>}
+          {<this._screens.support navigator={this.props.navigator}/>}
         </TabNavigator.Item>
       </TabNavigator>
     )
