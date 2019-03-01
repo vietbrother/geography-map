@@ -31,46 +31,11 @@ export default class ChartScreenBase extends Component {
                 <ScrollView>
 
                     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', paddingLeft: 50, paddingRight: 50}}>
-                        <RkTextInput
-                          rkType='rounded'
-                          containerStyle={styles.inputContainer}
-                          label={<Icon name='ios-person-outline'/>}
-                          labelStyle={styles.inputIcon}
-                          style={styles.input}
-                          placeholder={'Tên'}
-                          placeholderTextColor={RkConfig.colors.lightGray}/>
-                        <RkTextInput
-                          rkType='rounded'
-                          containerStyle={styles.inputContainer}
-                          label={<Icon name='ios-mail-outline'/>}
-                          labelStyle={styles.inputIcon}
-                          style={styles.input}
-                          placeholder={'Email'}
-                          placeholderTextColor={RkConfig.colors.lightGray}/>
-                        <RkTextInput
-                          rkType='rounded'
-                          containerStyle={styles.inputContainer}
-                          label={<Icon name='ios-filing-outline'/>}
-                          labelStyle={styles.inputIcon}
-                          style={styles.input}
-                          placeholder={'Tiêu đề'}
-                          placeholderTextColor={RkConfig.colors.lightGray}/>
-                        <RkTextInput
-                          rkType='rounded'
-                          containerStyle={styles.inputContainer}
-                          label={<Icon name='ios-paper-outline'/>}
-                          labelStyle={styles.inputIcon}
-                          style={styles.input}
-                          placeholder={'Tin nhắn'}
-                          placeholderTextColor={RkConfig.colors.lightGray}/>
 
                         <View style={{alignItems: 'center'}}>
-                            <RkButton rkCardHeader
-                                      style={styles.buttonContainer}
-                                      rkType='circle shadow'
-                            >
-                                <Text style={{color: '#fdfdfd'}}>Gửi</Text>
-                            </RkButton>
+
+                                <Text style={{color: '#fdfdfd'}}>Đang phát triển</Text>
+
                         </View>
                     </View>
                 </ScrollView>

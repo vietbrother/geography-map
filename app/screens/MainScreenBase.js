@@ -128,18 +128,18 @@ export default class MainScreenBase extends Component {
           }}>
           {<this._screens.chart navigator={this.props.navigator}/>}
         </TabNavigator.Item>
-        <TabNavigator.Item
-          title="Tin tức"
-          //iconName="ios-paper-outline"
-          renderIcon={() => <Icon name={'ios-paper'} size={27}/>}
-          selected={this.state.selected === 'news'}
-          onPress={() => {
-            this.setState({
-              selected: 'news',
-            })
-          }}>
-          {<this._screens.news navigator={this.props.navigator}/>}
-        </TabNavigator.Item>
+        {/*<TabNavigator.Item*/}
+          {/*title="Tin tức"*/}
+          {/*//iconName="ios-paper-outline"*/}
+          {/*renderIcon={() => <Icon name={'ios-paper'} size={27}/>}*/}
+          {/*selected={this.state.selected === 'news'}*/}
+          {/*onPress={() => {*/}
+            {/*this.setState({*/}
+              {/*selected: 'news',*/}
+            {/*})*/}
+          {/*}}>*/}
+          {/*{<this._screens.news navigator={this.props.navigator}/>}*/}
+        {/*</TabNavigator.Item>*/}
         <TabNavigator.Item
           title="Profile"
           //iconName="ios-person"

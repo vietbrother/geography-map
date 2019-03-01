@@ -9,7 +9,7 @@ import {
   ScrollView,
   Dimensions,
   TouchableOpacity,
-  Platform, TextInput
+  Platform, TextInput, Alert
 } from 'react-native'
 
 import _ from 'lodash'
@@ -87,12 +87,21 @@ export default class MapSearchScreenBase extends Component {
       </Wrapper>
     )
   }
+  onPressPolygon(data){
+    Alert.alert(
+      '',
+      data.name,
+      [
 
+      ],
+      {cancelable: true},
+    );
+  }
   _renderListPolygon (addressDetail) {
     let polygonView = [];
     let lstPolygon = api.getPolygonInfoByParentId(addressDetail.id);
-    console.log("lstPolygon");
-    console.log(lstPolygon);
+    //console.log("lstPolygon");
+    //console.log(lstPolygon);
     for (p of lstPolygon) {
       let coordinatesPolygon = p.coordinates.map(coordsArr => {
         let coords = {
@@ -102,8 +111,8 @@ export default class MapSearchScreenBase extends Component {
         return coords;
       })
 
-      console.log("coordinatesPolygon");
-      console.log(coordinatesPolygon);
+      //console.log("coordinatesPolygon");
+      //console.log(coordinatesPolygon);
       polygonView.push(
         <Polygon
           key={p.id}
@@ -119,6 +128,7 @@ export default class MapSearchScreenBase extends Component {
           ]}
           fillColor="#fff68f"
           strokeWidth={1}
+          onPress={() => this.onPressPolygon(p)}
         />
       );
     }
